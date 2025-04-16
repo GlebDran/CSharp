@@ -11,6 +11,14 @@ namespace CSharp
     {
         public static void Main(string[] args)
         {
+            Isik isik = new Isik("Juku", 25, "12345678901", "Tallinna mnt 1");
+            isik.PrindiInfo();
+            Isik isik2 = new Isik();
+            isik2.Nimi = "Mari";
+            isik2.Isikukood = "12345678901";
+            isik2.Aadress = "Tartu";
+            isik2.PrindiInfo();
+
             //ii osa kordused, massivid, listid, klassid
             int i;
             for (i = 0; i < 10; i++)
