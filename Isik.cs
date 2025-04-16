@@ -11,7 +11,7 @@ namespace CSharp
         Mees,
         Naine
     }
-    class Isik
+    internal class Isik
     {
         public string Nimi { get; set; }
         public int Vanus { get; set; } = 18;
@@ -19,7 +19,11 @@ namespace CSharp
         public string Aadress { get; set; }
         public Sugu Sugu { get; set; } = Sugu.Mees;
         public Isik() { }
-        public Isik(string nimi, int vanus, string isikukood, string aadress)
+        public Isik(string nimi)
+        {
+            Nimi = nimi;
+        }
+        public Isik(string nimi, int vanus, string isikukood, string aadress)//Sugu sugu
         {
             Nimi = nimi;
             Vanus = vanus;
@@ -27,8 +31,8 @@ namespace CSharp
             Aadress = aadress;
         }
         public void PrindiInfo()
-        { 
-        Console.WriteLine($"Nimi: {Nimi}, Vanus: {Vanus}, Isikukood: {Isikukood}, Aadress: {Aadress}, Sugu:{Sugu}");
+        {
+            Console.WriteLine($"Nimi: {Nimi}, Vanus: {Vanus}, Isikukood: {Isikukood}, Aadress: {Aadress}, Sugu:{Sugu}\n");
         }
     }
 }

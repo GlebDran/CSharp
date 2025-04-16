@@ -9,14 +9,17 @@ namespace CSharp
 {
     internal class MainClass
     {
+
         public static void Main(string[] args)
         {
             //II. osa Kordused, Massivid, Listid, Klassid
             List<string> sonad = FunktsioonideClass_2osa.Sõnad();
+
             foreach (var item in sonad)
             {
                 Console.WriteLine(item);
             }
+
 
 
             Isik isik1 = new Isik("Juku", 65, "12345678901", "Tallinn");
@@ -28,140 +31,86 @@ namespace CSharp
             isik2.Sugu = Sugu.Naine;
             isik2.PrindiInfo();
 
-
             int i;
-            Console.WriteLine("------ for++Massiv ------");
-            Isik[] isikud = new Isik[10];
-            string[] nimed = new string[10] { "Juku", "Mari", "Kati", "Mati", "Liina", "Katrin", "Andres", "Marko", "Kristi", "Jana" };
-            string[] aadressid = new string[10] { "Tallinn", "Tartu", "", "", "", "", "", "", "", "" };
-            for (i = 0; i < 10; i++)
-            {
-                Console.WriteLine(i);
-                //isikud[i] =new Isik();
-                Console.Write("Sisesta isikukood: ");
-                isikud[i] = new Isik
-                {
-                    Nimi = nimed[i],
-                    Vanus = 50,
-                    Isikukood = Console.ReadLine(),
-                    Aadress = aadressid[i]
-                };
-            }
-            for (i = 0; i < 10; i++)
+            string[] nimed = new string[10] { "Juku", "Mari", "Kati", "Peeter", "Mati", "Liina", "Katrin", "Andres", "Marko", "Kristi" };
+            string[] aadressid = new string[10] { "Tallinn", "Tartu", "Pärnu", "Narva", "Kohtla-Järve", "Viljandi", "Rakvere", "Paide", "Jõhvi", "Kuressaare" };
+            Console.WriteLine("-----for++Massiv-------");
+            Isik[] isikud = FunktsioonideClass_2osa.Isikud(nimed.Length, nimed, aadressid);
+            for (i = 0; i < nimed.Length; i++)
             {
                 isikud[i].PrindiInfo();
-
             }
 
-
-
-            Console.WriteLine("------ for-- ------");
+            Console.WriteLine("-----for--List-------");
             List<Isik> isikud2 = new List<Isik>();
-            for (int j = i-1; j > -1; j--)
+            for (int j = i - 1; j > -1; j--)
             {
                 Console.WriteLine(j);
                 Isik isik = new Isik
                 {
                     Nimi = nimed[j],
                     Vanus = 50,
-                    Isikukood = "1111111111111",
+                    Isikukood = "111111111111",
                     Aadress = aadressid[j]
                 };
                 isikud2.Add(isik);
-                }
-            foreach(Isik isik in isikud2)
-                {
-                    isik.PrindiInfo();
-               
             }
-            Console.WriteLine("------ while ------");
+            foreach (Isik isik in isikud2)
+            {
+                isik.PrindiInfo();
+            }
+
+
+
+            Console.WriteLine("-----while-------");
             while (i >= 0)
             {
                 Console.WriteLine(i);
                 i--;
-
             }
-            Console.WriteLine("------ do ------");
+            Console.WriteLine("-----do-------");
             ConsoleKeyInfo key = new ConsoleKeyInfo();
-
             do
             {
                 Console.WriteLine("Vajuta Backspace");
                 key = Console.ReadKey();
-
             }
             while (key.Key != ConsoleKey.Backspace);
 
 
+            // I.osa Andmetüübd, If, Case, Random, Alamfunktsioonid
 
-
-            //Console.OutputEncoding = Encoding.UTF8;
-
-            //// 1. Tervitus ja Juku
-            //Console.Write("Mis on sinu nimi? ");
-            //string nimi = Console.ReadLine();
-            //Console.WriteLine(FunktsioonideClass_1osa.Tervita(nimi));
-            //Console.WriteLine(FunktsioonideClass_1osa.KontrolliJuku(nimi));
-
-            //// 2. Naabrid
-            //Console.Write("Sisesta esimene nimi: ");
-            //string naaber1 = Console.ReadLine();
-            //Console.Write("Sisesta teine nimi: ");
-            //string naaber2 = Console.ReadLine();
-            //Console.WriteLine(FunktsioonideClass_1osa.Naabrid(naaber1, naaber2));
-
-            //// 3. Ruumi pindala ja remont
-            //Console.Write("Sisesta toa pikkus meetrites: ");
-            //float pikkus = float.Parse(Console.ReadLine());
-            //Console.Write("Sisesta toa laius meetrites: ");
-            //float laius = float.Parse(Console.ReadLine());
-            //float pindala = FunktsioonideClass_1osa.ArvutaPindala(pikkus, laius);
-            //Console.WriteLine("Pindala: " + pindala + " m2");
-
-            //Console.Write("Kas soovid remonti teha? (jah/ei): ");
-            //string remont = Console.ReadLine().ToLower();
-            //if (remont == "jah")
-            //{
-            //    Console.Write("Ruutmeetri hind (€): ");
-            //    float hind = float.Parse(Console.ReadLine());
-            //    float maksumus = FunktsioonideClass_1osa.ArvutaRemont(pindala, hind);
-            //    Console.WriteLine("Remondi kogumaksumus: " + maksumus + " €");
-            //}
-
-            //// 4. Soodushind
-            //Console.Write("Sisesta algne hind (€): ");
-            //float hindOrig = float.Parse(Console.ReadLine());
-            //Console.WriteLine("Soodushind (30%): " + FunktsioonideClass_1osa.ArvutaSoodushind(hindOrig) + " €");
-
-            //// 5. Temperatuur
-            //Console.Write("Sisesta toatemperatuur: ");
-            //float temp = float.Parse(Console.ReadLine());
-            //Console.WriteLine(FunktsioonideClass_1osa.KontrolliTemperatuuri(temp));
-
-            //// 6. Pikkus
-            //Console.Write("Sisesta oma pikkus (cm): ");
-            //int pikkusCm = int.Parse(Console.ReadLine());
-            //Console.WriteLine(FunktsioonideClass_1osa.KontrolliPikkust(pikkusCm));
-
-            //// 7. Pikkus ja sugu
-            //Console.Write("Sisesta sugu (m/f): ");
-            //string sugu = Console.ReadLine().ToLower();
-            //Console.WriteLine(FunktsioonideClass_1osa.KontrolliPikkustSugu(pikkusCm, sugu));
-
-            //// 8. Ostukorv
-            //Console.Write("Kas soovid piima? (jah/ei): ");
-            //bool piim = Console.ReadLine().ToLower() == "jah";
-
-            //Console.Write("Kas soovid saia? (jah/ei): ");
-            //bool sai = Console.ReadLine().ToLower() == "jah";
-
-            //Console.Write("Kas soovid leiba? (jah/ei): ");
-            //bool leib = Console.ReadLine().ToLower() == "jah";
-
-            //float summa = FunktsioonideClass_1osa.ArvutaOstukorv(piim, sai, leib);
-            //Console.WriteLine("Ostukorvi summa: " + summa + " €");
-
-            //Console.ReadKey();
+            /*Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("Tere! Hea Päev! Привет!"); 
+            int a = 0;
+            string tekst = "Python";
+            char taht= 'A';
+            Console.WriteLine("Double arv: ");
+            double arv = Convert.ToDouble(Console.ReadLine());
+            //double.TryParse(Console.ReadLine(), out double arv)
+            Console.WriteLine("Float arv: ");
+            float arv1 = (float)Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Mis on sinu nimi? ");
+            tekst = Console.ReadLine();
+            Console.WriteLine("Tere!\n"+tekst);
+            Console.WriteLine("Tere!\n {0}",tekst);
+            FinktsioonideClass_1osa.Juku(tekst);
+            Console.Write("Arv 2: ");
+            int arv2=int.Parse(Console.ReadLine());
+            //Console.WriteLine("Arvude {0} ja {1} korrutis võrdub {2}", arv1, arv2, arv1 * arv2);
+            arv1=FinktsioonideClass_1osa.Kalkulaator(a, arv2);
+            Console.WriteLine(arv1);
+            Console.WriteLine("Switch'i kasutamine");
+            Random rnd = new Random();
+            a=rnd.Next(1,7);
+            Console.WriteLine(a);
+            tekst=FinktsioonideClass_1osa.Nadala_paev(a);
+            Console.WriteLine(tekst);*/
+            Console.ReadKey();
         }
+
     }
+
 }
