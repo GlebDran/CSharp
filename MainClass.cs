@@ -12,8 +12,33 @@ namespace CSharp
         public static void Main(string[] args)
         {
             //ii osa kordused, massivid, listid, klassid
+            int i;
+            for (i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("----------------");
+            for (int j = i; j >0; j--)
+            {
+                Console.WriteLine(j);
+            }
+            Console.WriteLine("----------------");
+            while (i>0)
+            {
+                Console.WriteLine(i);
+                i--;
+            }
+            Console.WriteLine("----------------");
+            ConsoleKeyInfo key = new ConsoleKeyInfo();
+            do
+            {
+                Console.WriteLine("Vajuta Backspace");
+                key = Console.ReadKey();
+            }
+            while (key.Key!=ConsoleKey.Backspace); 
 
-            
+            Console.WriteLine("----------------");
+
             Console.OutputEncoding = Encoding.UTF8;
 
             // 1. Tervitus ja Juku
