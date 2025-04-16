@@ -18,6 +18,9 @@ namespace CSharp
                 sonad.Add(Console.ReadLine());
             }
             return sonad;
+
         }
+
     }
 } 
+
