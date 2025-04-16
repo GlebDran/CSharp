@@ -12,6 +12,18 @@ namespace CSharp
         public static void Main(string[] args)
         {
             //II. osa Kordused, Massivid, Listid, Klassid
+            List<string> sonad = new List<string>();
+            for (int j = 0; j < 5; j++)
+            {
+                Console.Write("Nimi: ");
+                sonad.Add(Console.ReadLine());
+            }
+            foreach (var item in sonad)
+            {
+                Console.WriteLine(item);
+            }
+
+
             Isik isik1 = new Isik("Juku", 65, "12345678901", "Tallinn");
             isik1.PrindiInfo();
             Isik isik2 = new Isik();
@@ -31,12 +43,13 @@ namespace CSharp
             {
                 Console.WriteLine(i);
                 //isikud[i] =new Isik();
+                Console.Write("Sisesta isikukood: ");
                 isikud[i] = new Isik
                 {
                     Nimi = nimed[i],
                     Vanus = 50,
-                    Isikukood = "1234567890" + i,
-                    Aadress = "Tallinn" + i
+                    Isikukood = Console.ReadLine(),
+                    Aadress = aadressid[i]
                 };
             }
             for (i = 0; i < 10; i++)
@@ -48,9 +61,23 @@ namespace CSharp
 
 
             Console.WriteLine("------ for-- ------");
-            for (int j = i; j > 0; j--)
+            List<Isik> isikud2 = new List<Isik>();
+            for (int j = i-1; j > -1; j--)
             {
                 Console.WriteLine(j);
+                Isik isik = new Isik
+                {
+                    Nimi = nimed[j],
+                    Vanus = 50,
+                    Isikukood = "1111111111111",
+                    Aadress = aadressid[j]
+                };
+                isikud2.Add(isik);
+                }
+            foreach(Isik isik in isikud2)
+                {
+                    isik.PrindiInfo();
+               
             }
             Console.WriteLine("------ while ------");
             while (i >= 0)
