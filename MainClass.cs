@@ -12,12 +12,7 @@ namespace CSharp
         public static void Main(string[] args)
         {
             //II. osa Kordused, Massivid, Listid, Klassid
-            List<string> sonad = new List<string>();
-            for (int j = 0; j < 5; j++)
-            {
-                Console.Write("Nimi: ");
-                sonad.Add(Console.ReadLine());
-            }
+            List<string> sonad = FunktsioonideClass_2osa.Sõnad();
             foreach (var item in sonad)
             {
                 Console.WriteLine(item);
